@@ -19,11 +19,14 @@ class WordBasedGame{
 
         Boolean running = true;
 
-        System.out.println("\nWelcome to the Game!");
-
+        System.out.println("\n\tWelcome to the Game!");
+        System.out.println("\t 1. !! START !!");
+        System.out.println("\t 2. ^^ EXIT ^^");
+        String input1 = scan.nextLine();
+    if(input1.equals("1")){
         Game:
         while(running){
-            System.out.println("--------------------");
+            System.out.println("\t--------------------");
 
             int enemyHealth = rand.nextInt(maxEnemyHealth);
             String enemy = enemies[rand.nextInt(enemies.length)];
@@ -32,6 +35,7 @@ class WordBasedGame{
             while(enemyHealth > 0){
                 System.out.println("\n\tYour HP: " + health);
                 System.out.println("\t"+ enemy +"'s HP:" + enemyHealth);
+                System.out.println("\tYou have "+ numberofHealthPotion + " Health Potions ");
                 System.out.println("\n\tWhat Would You Like To Do?");
                 System.out.println("\t1. Attack");
                 System.out.println("\t2. Drink Health Potion");
@@ -82,17 +86,17 @@ class WordBasedGame{
             }
 
             if(health < 1){
-                System.out.println("You Limp out of the Dungeon, Weak from battle");
+                System.out.println("\t> You Limp out of the Arena, Weak from the battle");
                 break;
             }
 
             System.out.println("--------------------");
-            System.out.println("#" + enemy + " Was Defeated! # ");
-            System.out.println("# You Have "+ health + " HP Left: #");
+            System.out.println("> " + enemy + " Was Defeated! ");
+            System.out.println("> You Have "+ health + " HP Left!");
             if(rand.nextInt(100) < healthPotionDropChance){
                 numberofHealthPotion++;
-                System.out.println("# The " + enemy + " dropped a health potion! #");
-                System.out.println("You now have " + numberofHealthPotion + "health potion(s). #");
+                System.out.println("> The " + enemy + " dropped a health potion!");
+                System.out.println("> You now have " + numberofHealthPotion + " health potion(s).");
             }
              System.out.println("--------------------");
              System.out.println("What would you like to do?");
@@ -117,9 +121,13 @@ class WordBasedGame{
 
 
         }  
-        System.out.println("#######################");
+        System.out.println("\n#######################");
         System.out.println("# THANKS FOR PLAYING! #");
         System.out.println("#######################");
     }
+    else if(input1.equals("2")){
+      System.out.println("\tSee you Again Soooon");
+    }
+  }
 
 }
